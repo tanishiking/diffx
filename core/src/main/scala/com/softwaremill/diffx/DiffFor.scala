@@ -8,7 +8,7 @@ object DiffFor {
   def apply[T, R: DiffFor](converter: T => R): DiffFor[T] =
     (left: T, right: T) => implicitly[DiffFor[R]].apply(converter(left), converter(right))
 
-  def identical[T] :DiffFor[T] = (left: T, _: T) => Identical(left)
+  def identical[T]: DiffFor[T] = (left: T, _: T) => Identical(left)
 }
 
 trait DiffResult {
