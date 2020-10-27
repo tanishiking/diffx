@@ -13,7 +13,8 @@ class CoreModule(val crossScalaVersion: String) extends CrossSbtModule with Scal
     ivy"com.propensive::magnolia:0.17.0",
     ivy"org.scala-lang:scala-reflect:$crossScalaVersion"
   )
-  override def scalacPluginIvyDeps = Agg(ivy"com.lihaoyi::acyclic:0.2.0")
+  override def scalacPluginIvyDeps = Agg(ivy"com.lihaoyi::acyclic:0.2.0",
+    ivy"org.typelevel::kind-projector:0.10.3")
 
   object test extends Tests {
     override def ivyDeps = Agg(
