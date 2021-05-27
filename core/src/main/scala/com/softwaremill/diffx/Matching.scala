@@ -5,12 +5,11 @@ private[diffx] object Matching {
       left: scala.collection.Set[T],
       right: scala.collection.Set[T],
       matcher: ObjectMatcher[T],
-      diff: Diff[T],
-      toIgnore: List[FieldPath]
+      diff: Diff[T]
   ): MatchingResults[T] = {
     val matchedKeys = left.flatMap(l =>
       right.collectFirst {
-        case r if matcher.isSameObject(l, r) || diff(l, r, toIgnore).isIdentical => l -> r
+        case r if matcher.isSameObject(l, r) || diff.compare(l, r).isIdentical => l -> r
       }
     )
     MatchingResults(left.diff(matchedKeys.map(_._1)), right.diff(matchedKeys.map(_._2)), matchedKeys)

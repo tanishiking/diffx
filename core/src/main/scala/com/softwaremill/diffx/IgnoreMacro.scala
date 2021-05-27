@@ -44,6 +44,7 @@ object IgnoreMacro {
     case class FunctorPathElement(functor: c.Tree, method: c.TermName, xargs: c.Tree*) extends PathElement
 
     /** _.a.b.each.c => List(TPE(a), TPE(b), FPE(functor, each/at/eachWhere, xargs), TPE(c))
+      * _.copy(
       */
     @tailrec
     def collectPathElements(tree: c.Tree, acc: List[PathElement]): List[PathElement] = {
