@@ -3,9 +3,14 @@ package com.softwaremill.diffx
 import scala.annotation.compileTimeOnly
 import com.softwaremill.diffx.DiffxSupport._
 
-trait DiffxSupport extends DiffxEitherSupport with DiffxConsoleSupport with DiffxOptionSupport {
+trait DiffxSupport
+    extends DiffxEitherSupport
+    with DiffxConsoleSupport
+    with DiffxOptionSupport
+    with DiffLensToMatchByOps
+    with DiffToMatchByOps {
   type FieldPath = List[String]
-  type ListMatcher[T] = ObjectMatcher[ObjectMatcher.IterableEntry[T]]
+  type SeqMatcher[T] = ObjectMatcher[ObjectMatcher.SeqEntry[T]]
   type SetMatcher[T] = ObjectMatcher[ObjectMatcher.SetEntry[T]]
   type MapMatcher[K, V] = ObjectMatcher[ObjectMatcher.MapEntry[K, V]]
 
