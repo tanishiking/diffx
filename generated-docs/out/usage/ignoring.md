@@ -16,7 +16,7 @@ instance of the `Diff` typeclass into the implicit scope. The whole process look
 
 ```scala
 case class Person(name:String, age:Int)
-implicit val modifiedDiff: Diff[Person] = Derived[Diff[Person]].ignore(_.age)
+implicit val modifiedDiff: Diff[Person] = Diff.derived[Person].ignore(_.age)
 ```
 ```scala
 compare(Person("bob", 25), Person("bob", 30))
@@ -44,7 +44,7 @@ implicit val conf: DiffConfiguration = DiffConfiguration(makeIgnored =
 )
 // conf: DiffConfiguration = DiffConfiguration(makeIgnored = <function1>)
 val d = Diff[Person].ignore(_.age)
-// d: Diff[Person] = com.softwaremill.diffx.Diff$$anon$1@2f232df9
+// d: Diff[Person] = com.softwaremill.diffx.Diff$$anon$1@2425c8a0
 d(Person("bob", 25), Person("bob", 30)) 
 // res2: DiffResult = DiffResultObject(
 //   name = "Person",

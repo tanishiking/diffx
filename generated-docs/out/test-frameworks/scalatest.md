@@ -11,7 +11,7 @@ For use with `should` matchers:
 
 For use with `must` matchers:
 ```scala
-"com.softwaremill.diffx" %% "diffx-scalatest-should" % "0.6.0" % Test
+"com.softwaremill.diffx" %% "diffx-scalatest-must" % "0.6.0" % Test
 ```
 
 ## mill
