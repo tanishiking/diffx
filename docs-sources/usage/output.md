@@ -47,7 +47,7 @@ The default theme is dark, and it can be changed using environment variable - `D
 
 ## skipping identical
 
-In some cases it might be desired to skip rendering the identical fields, to do that simple set `showIgnored` to `false`.
+In some cases it might be desired to skip rendering the identical fields, to do that simply set `renderIdentical` to `false`.
 
 ```scala mdoc
 case class Person(name:String, age:Int)
